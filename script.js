@@ -7,4 +7,4 @@ const adaptive = false;
 
 alert("We learn JS!");
 console.log("Work after learning!");
-console.log('Help!');
+
