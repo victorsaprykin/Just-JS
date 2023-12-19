@@ -1,28 +1,28 @@
 "use strict";
 
-let title = prompt("Как называется Ваш проект?");
+const title = prompt("Как называется Ваш проект?");
 
-let screens = prompt("Какие типы экранов нужно разработать?");
+const screens = prompt("Какие типы экранов нужно разработать?");
 
-let screenPrice = prompt("Сколько будет стоить данная работа?");
+const screenPrice = prompt("Сколько будет стоить данная работа?");
 
-let adaptive = confirm("Нужен ли адаптив на сайте?");
+const adaptive = confirm("Нужен ли адаптив на сайте?");
 
-let addServise1 = prompt("Какой дополнительный тип услуги нужен?", "service1");
+const addServise1 = prompt("Какой дополнительный тип услуги нужен?", "service1");
 
-let servicePrice1 = prompt("Сколько это будет стоить?");
+const servicePrice1 = prompt("Сколько это будет стоить?");
 
-let addServise2 = prompt("Какой дополнительный тип услуги нужен?", "service2");
+const addServise2 = prompt("Какой дополнительный тип услуги нужен?", "service2");
 
-let servicePrice2 = prompt("Сколько это будет стоить?");
+const servicePrice2 = prompt("Сколько это будет стоить?");
 
-let fullPrice =
+const fullPrice =
   Number(screenPrice) + Number(servicePrice1) + Number(servicePrice2);
 console.log(fullPrice);
-let percent = 5;
-let percentPrice = (fullPrice * percent) / 100;
+const rollback = 5;
+const percentPrice = (fullPrice * rollback) / 100;
 
-let servicePercentPrice = Math.ceil(fullPrice - percentPrice);
+const servicePercentPrice = Math.ceil(fullPrice - percentPrice);
 
 if (isNaN(servicePercentPrice)) {
   console.log("Косяк, однако!");
@@ -32,9 +32,11 @@ if (isNaN(servicePercentPrice)) {
 
 if (fullPrice > 30000) {
   console.log("Даем скидку в 10%");
-} else if (fullPrice >= 15000 && fullPrice <= 30000) {
+} 
+if (fullPrice >= 15000 && fullPrice <= 30000) {
   console.log("Даем скидку в 10%");
-} else if (fullPrice >= 0 && fullPrice < 15000) {
+} 
+if (fullPrice >= 0 && fullPrice < 15000) {
   console.log("Скидка не предусмотрена");
 } else {
   console.log("Что то пошло не так");
