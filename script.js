@@ -8,24 +8,27 @@ const screenPrice = Number(prompt("Сколько будет стоить дан
 
 const adaptive = confirm("Нужен ли адаптив на сайте?");
 
-const addServise1 = prompt("Какой дополнительный тип услуги нужен?", "service1");
+const addServise1 = prompt(
+  "Какой дополнительный тип услуги нужен?",
+  "service1"
+);
 
 const servicePrice1 = Number(prompt("Сколько это будет стоить?"));
-console.log(servicePrice1);
 
-const addServise2 = prompt("Какой дополнительный тип услуги нужен?", "service2");
+const addServise2 = prompt(
+  "Какой дополнительный тип услуги нужен?",
+  "service2"
+);
 
 const servicePrice2 = Number(prompt("Сколько это будет стоить?"));
 
-console.log(servicePrice2);
+const fullPrice = screenPrice + servicePrice1 + servicePrice2;
 
-const fullPrice =
-  screenPrice + servicePrice1 + servicePrice2;
-console.log(fullPrice);
 const rollback = 5;
 
-
 const servicePercentPrice = Math.ceil(fullPrice - rollback);
+
+console.log(servicePercentPrice);
 
 if (isNaN(servicePercentPrice)) {
   console.log("Косяк, однако!");
@@ -35,12 +38,13 @@ if (isNaN(servicePercentPrice)) {
 
 if (fullPrice > 30000) {
   console.log("Даем скидку в 10%");
-} 
+}
 if (fullPrice >= 15000 && fullPrice <= 30000) {
   console.log("Даем скидку в 5%");
-} 
+}
 if (fullPrice >= 0 && fullPrice < 15000) {
   console.log("Скидка не предусмотрена");
-} if (fullPrice < 0) { 
+}
+if (fullPrice < 0) {
   console.log("Что то пошло не так");
 }
