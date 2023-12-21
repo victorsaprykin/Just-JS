@@ -37,7 +37,7 @@ const showTypeOf = function (variable) {
 };
 
 const getRollbackMessage = function (price) {
-  if (screenPrice <= 0) {
+  if (price <= 0) {
     return "Что то пошло не так";
   }
   if (price >= 30000) {
