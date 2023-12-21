@@ -5,14 +5,11 @@ let screens;
 let screenPrice;
 let adaptive;
 let addServise1;
-let servicePrice1;
 let addServise2;
-let servicePrice2;
 let rollback = 5;
 let allServicePrices;
 let servicePercentPrices;
 let fullPrice;
-
 
 const isNumber = function (num) {
   return !isNaN(parseFloat(num)) && isFinite(num);
@@ -21,7 +18,6 @@ const isNumber = function (num) {
 const asking = function () {
   title = prompt("Как называется Ваш проект?", "Верстка сайта");
   screens = prompt("Какие типы экранов нужно разработать?", "Полные и Макси");
- 
 
   do {
     screenPrice = +prompt("Сколько будет стоить данная работа?");
@@ -30,10 +26,9 @@ const asking = function () {
 };
 
 const getAllServicePrices = function () {
-  let sum = 0
+  let sum = 0;
 
   for (let i = 0; i < 2; i++) {
-
     if (i === 0) {
       addServise1 = prompt(
         "Какой дополнительный тип услуги нужен?",
@@ -45,16 +40,14 @@ const getAllServicePrices = function () {
         "service2"
       );
     }
-    
-      sum += +prompt("Сколько это будет стоить?");
-     while (!isNumber(sum)) {
+
+    sum += +prompt("Сколько это будет стоить?");
+    while (!isNumber(sum)) {
       sum = +prompt("Введите число!");
-     }
-    
+    }
   }
 
-  return sum
-
+  return sum;
 };
 
 function getFullPrice() {
@@ -97,10 +90,15 @@ servicePercentPrices = getServicePercentPrices();
 showTypeOf(screens);
 showTypeOf(servicePercentPrices);
 
-console.log('allServicePrices', allServicePrices);
-
+console.log("allServicePrices", allServicePrices)
 console.log(screenPrice);
 console.log(getTitle(title));
 console.log(getRollbackMessage(fullPrice));
 
-console.log("Стоимость верстки экранов " + screenPrice + " руб и Стоимость разработки сайта " + fullPrice + " руб");
+console.log(
+  "Стоимость верстки экранов " +
+    screenPrice +
+    " руб и Стоимость разработки сайта " +
+    fullPrice +
+    " руб"
+);
