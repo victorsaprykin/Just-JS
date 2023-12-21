@@ -1,21 +1,60 @@
 "use strict";
 
-let title = prompt("Как называется Ваш проект?");
-let screens = prompt("Какие типы экранов нужно разработать?");
-let screenPrice = Number(prompt("Сколько будет стоить данная работа?"));
-let adaptive = confirm("Нужен ли адаптив на сайте?");
-let addServise1 = prompt("Какой дополнительный тип услуги нужен?", "service1");
-let servicePrice1 = Number(prompt("Сколько это будет стоить?"));
-let addServise2 = prompt("Какой дополнительный тип услуги нужен?", "service2");
-let servicePrice2 = Number(prompt("Сколько это будет стоить?"));
+let title;
+let screens;
+let screenPrice;
+let adaptive;
+let addServise1;
+let servicePrice1;
+let addServise2;
+let servicePrice2;
 let rollback = 5;
 let allServicePrices;
 let servicePercentPrices;
 let fullPrice;
 
 
-const getAllServicePrices = function (servicePrice1, servicePrice2) {
-  return servicePrice1 + servicePrice2;
+const isNumber = function (num) {
+  return !isNaN(parseFloat(num)) && isFinite(num);
+};
+
+const asking = function () {
+  title = prompt("Как называется Ваш проект?", "Верстка сайта");
+  screens = prompt("Какие типы экранов нужно разработать?", "Полные и Макси");
+ 
+
+  do {
+    screenPrice = +prompt("Сколько будет стоить данная работа?");
+  } while (!isNumber(screenPrice));
+  adaptive = confirm("Нужен ли адаптив на сайте?");
+};
+
+const getAllServicePrices = function () {
+  let sum = 0
+
+  for (let i = 0; i < 2; i++) {
+
+    if (i === 0) {
+      addServise1 = prompt(
+        "Какой дополнительный тип услуги нужен?",
+        "service1"
+      );
+    } else if (i === 1) {
+      addServise2 = prompt(
+        "Какой дополнительный тип услуги нужен?",
+        "service2"
+      );
+    }
+    
+      sum += +prompt("Сколько это будет стоить?");
+     while (!isNumber(sum)) {
+      sum = +prompt("Введите число!");
+     }
+    
+  }
+
+  return sum
+
 };
 
 function getFullPrice() {
@@ -48,15 +87,20 @@ const getRollbackMessage = function (price) {
   }
   if (price > 0 && price < 15000) {
     return "Скидка не предусмотрена";
-  } 
+  }
 };
 
-
-allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
+asking();
+allServicePrices = getAllServicePrices();
 fullPrice = getFullPrice();
 servicePercentPrices = getServicePercentPrices();
 showTypeOf(screens);
 showTypeOf(servicePercentPrices);
 
+console.log('allServicePrices', allServicePrices);
+
+console.log(screenPrice);
 console.log(getTitle(title));
 console.log(getRollbackMessage(fullPrice));
+
+console.log("Стоимость верстки экранов " + screenPrice + " руб и Стоимость разработки сайта " + fullPrice + " руб");
