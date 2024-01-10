@@ -90,7 +90,7 @@ servicePercentPrices = getServicePercentPrices();
 showTypeOf(screens);
 showTypeOf(servicePercentPrices);
 
-console.log("allServicePrices", allServicePrices)
+console.log("allServicePrices", allServicePrices);
 console.log(screenPrice);
 console.log(getTitle(title));
 console.log(getRollbackMessage(fullPrice));
