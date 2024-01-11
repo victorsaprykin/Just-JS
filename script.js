@@ -17,14 +17,12 @@ const appData = {
 
   start: function () {
     isNumber();
-    appData.asking = appData.asking();
-
+    appData.asking();
     appData.title = appData.getTitle();
-
-    appData.getAllServicePrices = appData.getAllServicePrices();
-    appData.getFullPrice = appData.getFullPrice();
-    appData.getServicePercentPrices = appData.getServicePercentPrices();
-    appData.logged = appData.logged();
+    appData.allServicePrices = appData.getAllServicePrices();
+    appData.fullPrice = appData.getFullPrice();
+    appData.servicePercentPrices = appData.getServicePercentPrices();
+    appData.logged();
   },
 
   asking: function () {
@@ -105,4 +103,4 @@ const appData = {
   },
 };
 
-appData.start = appData.start();
+appData.start();
