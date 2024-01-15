@@ -1,7 +1,4 @@
 "use strict";
-const isNumber = function (num) {
-  return !isNaN(parseFloat(num)) && isFinite(num);
-};
 
 const appData = {
   title: "",
@@ -16,13 +13,17 @@ const appData = {
   fullPrice: 0,
 
   start: function () {
-    isNumber();
+    appData.isNumber();
     appData.asking();
-    appData.title = appData.getTitle();
     appData.allServicePrices = appData.getAllServicePrices();
     appData.fullPrice = appData.getFullPrice();
     appData.servicePercentPrices = appData.getServicePercentPrices();
-    appData.logged();
+    appData.title = appData.getTitle();
+    appData.logger();
+  },
+
+  isNumber: function (num) {
+    return !isNaN(parseFloat(num)) && isFinite(num);
   },
 
   asking: function () {
@@ -82,21 +83,18 @@ const appData = {
   },
 
   getRollbackMessage: function (price) {
-    if (screenPrice <= 0) {
-      return "Что то пошло не так";
-    }
     if (price >= 30000) {
       return "Даем скидку в 10%";
-    }
-    if (price >= 15000 && price < 30000) {
+    } else if (price >= 15000 && price < 30000) {
       return "Даем скидку в 5%";
-    }
-    if (price > 0 && price < 15000) {
+    } else if (price >= 0 && price < 15000) {
       return "Скидка не предусмотрена";
+    } else {
+      return "Что то пошло не так";
     }
   },
 
-  logged: function () {
+  logger: function () {
     for (const key in appData) {
       console.log(`${key} - ${appData[key]}`);
     }
