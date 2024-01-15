@@ -13,7 +13,6 @@ const appData = {
   fullPrice: 0,
 
   start: function () {
-    appData.isNumber();
     appData.asking();
     appData.allServicePrices = appData.getAllServicePrices();
     appData.fullPrice = appData.getFullPrice();
