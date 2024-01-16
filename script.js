@@ -1,8 +1,8 @@
 "use strict";
 
 const appData = {
-  title: "",
-  name: "",
+  title: '',
+  name: '',
   screens: [],
   screenPrice: 0,
   adaptive: true,
