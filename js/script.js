@@ -1,5 +1,33 @@
 "use strict";
 
+const headerTitle = document.getElementsByTagName("h1");
+const calcResetBtn = document.getElementsByClassName("handler_btn");
+const addScreenBtn = document.querySelector(".screen-btn");
+const addServicePercent = document.querySelectorAll(".other-items.percent");
+const addServiceNumber = document.querySelectorAll(".other-items.number");
+const setRollback = document.querySelector('.rollback [type="range"]');
+const rangeRollback = document.querySelector(".rollback .range-value");
+const totalInputs = function () {
+  let list = document.getElementsByClassName("total-input");
+  for (let i = 0; i < list.length; i++) {
+    console.log(list[i]);
+  }
+};
+let getScreens = document.querySelectorAll(".screen");
+
+totalInputs();
+
+console.log(headerTitle[0]);
+console.log(calcResetBtn[0]);
+console.log(calcResetBtn[1]);
+console.log(addScreenBtn);
+
+console.log(addServicePercent);
+console.log(addServiceNumber);
+console.log(setRollback);
+console.log(rangeRollback);
+console.log(getScreens);
+
 const appData = {
   title: "",
   name: "",
@@ -104,4 +132,4 @@ const appData = {
   },
 };
 
-appData.start();
+// appData.start();
