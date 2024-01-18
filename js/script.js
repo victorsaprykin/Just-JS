@@ -1,31 +1,36 @@
 "use strict";
 
-const headerTitle = document.getElementsByTagName("h1");
-const calcResetBtn = document.getElementsByClassName("handler_btn");
+const headerTitle = document.getElementsByTagName("h1")[0];
+const calcBtn = document.getElementsByClassName("handler_btn")[0];
+const resetBtn = document.getElementsByClassName("handler_btn")[1];
 const addScreenBtn = document.querySelector(".screen-btn");
 const addServicePercent = document.querySelectorAll(".other-items.percent");
 const addServiceNumber = document.querySelectorAll(".other-items.number");
 const setRollback = document.querySelector('.rollback [type="range"]');
 const rangeRollback = document.querySelector(".rollback .range-value");
-const totalInputs = function () {
-  let list = document.getElementsByClassName("total-input");
-  for (let i = 0; i < list.length; i++) {
-    console.log(list[i]);
-  }
-};
+const layoutcCostInput = document.getElementsByClassName("total-input")[0];
+const screensInput = document.getElementsByClassName("total-input")[1];
+const servicesInput = document.getElementsByClassName("total-input")[2];
+const totalCostInput = document.getElementsByClassName("total-input")[3];
+const rollbackPriceInput = document.getElementsByClassName("total-input")[4];
+ 
 let getScreens = document.querySelectorAll(".screen");
 
-totalInputs();
 
-console.log(headerTitle[0]);
-console.log(calcResetBtn[0]);
-console.log(calcResetBtn[1]);
+
+console.log(headerTitle);
+console.log(calcBtn);
+console.log(resetBtn);
 console.log(addScreenBtn);
-
 console.log(addServicePercent);
 console.log(addServiceNumber);
 console.log(setRollback);
 console.log(rangeRollback);
+console.log(layoutcCostInput);
+console.log(screensInput);
+console.log(servicesInput);
+console.log(totalCostInput);
+console.log(rollbackPriceInput);
 console.log(getScreens);
 
 const appData = {
