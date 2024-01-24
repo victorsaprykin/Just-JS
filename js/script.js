@@ -21,7 +21,6 @@ const appData = {
   name: "",
   screens: [],
   isError: true,
-  // count: 0,
   screenPrice: 0,
   adaptive: true,
   servisesPercent: {},
@@ -33,8 +32,6 @@ const appData = {
   fullPrice: 0,
   init: function () {
     appData.addTitle();
-    // appData.checkInputs();
-
     calcBtn.addEventListener("click", () => {
       appData.start();
     });
