@@ -20,7 +20,6 @@ const appData = {
   title: "",
   name: "",
   screens: [],
-  isError: true,
   screenPrice: 0,
   adaptive: true,
   servisesPercent: {},
@@ -51,12 +50,13 @@ const appData = {
   },
 
   checkInputs: function () {
-    screens = document.querySelectorAll(".screen");
+   
+    appData.isError = false
     screens.forEach((screen) => {
       const select = screen.querySelector("select");
       const input = screen.querySelector("input");
       if (select.value.trim().length === 0 || input.value.trim().length === 0) {
-        appData.isError = false;
+        appData.isError = true;
         console.log("isError в функции checkInputs: " + this.isError);
       }
       select.addEventListener("change", this.checkInputs);
@@ -68,13 +68,15 @@ const appData = {
 
     console.log("isError в функции Start;" + this.isError);
 
-    appData.addScreens();
-    appData.addServices();
+    if (!appData.isError) {
+      appData.addScreens();
+      appData.addServices();
 
-    appData.addPrices();
+      appData.addPrices();
 
-    console.log(appData);
-    appData.showResult();
+      console.log(appData);
+      appData.showResult();
+    }
   },
 
   showResult: function () {
