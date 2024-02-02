@@ -38,12 +38,12 @@ const appData = {
     this.addTitle();
     calcBtn.addEventListener("click", () => {
       this.start();
-      appData.blockInputs();
+      this.blockInputs();
     });
-    addScreenBtn.addEventListener("click", appData.addScreenBlock);
-    setRollback.addEventListener("change", appData.getRollback);
+    addScreenBtn.addEventListener("click", this.addScreenBlock);
+    setRollback.addEventListener("change", this.getRollback);
     resetBtn.addEventListener("click", () => {
-      appData.restart();
+      this.restart();
       console.log("restart");
     });
   },
@@ -55,17 +55,17 @@ const appData = {
   getRollback: function (e) {
     console.log(e.type);
     rangeRollback.textContent = e.target.value + "%";
-    appData.rollback = e.target.value;
-    console.log("Откат:" + appData.rollback);
+    this.rollback = e.target.value;
+    console.log("Откат:" + this.rollback);
   },
 
   checkInputs: function () {
-    appData.isError = false;
+    this.isError = false;
     screens.forEach((screen) => {
       const select = screen.querySelector("select");
       const input = screen.querySelector("input");
       if (select.value.trim().length === 0 || input.value.trim().length === 0) {
-        appData.isError = true;
+        this.isError = true;
         console.log("isError в функции checkInputs: " + this.isError);
       }
       select.addEventListener("change", this.checkInputs);
@@ -77,7 +77,7 @@ const appData = {
 
     console.log("isError в функции Start;" + this.isError);
 
-    if (!appData.isError) {
+    if (!this.isError) {
       this.addScreens();
       this.addServices();
 
@@ -114,7 +114,7 @@ const appData = {
       console.dir(screens);
     });
 
-    console.log(appData.screens);
+  
   },
 
   addServices: function () {
@@ -124,7 +124,7 @@ const appData = {
       const input = item.querySelector("input[type=text]");
 
       if (check.checked) {
-        appData.servisesPercent[label.textContent] = +input.value;
+        this.servisesPercent[label.textContent] = +input.value;
       }
     });
     addServiceNumber.forEach(function (item) {
@@ -133,7 +133,7 @@ const appData = {
       const input = item.querySelector("input[type=text]");
 
       if (check.checked) {
-        appData.servisesNumber[label.textContent] = +input.value;
+        this.servisesNumber[label.textContent] = +input.value;
       }
     });
   },
@@ -181,7 +181,11 @@ const appData = {
       console.dir(select);
       console.dir(input);
     });
-    screens.slice(0, 1);
+
+    for (let i = screens.length - 1; i > 0; i--) {
+      screens[0].parentNode.removeChild(screens[i]);
+    }
+
     addServicePercent.forEach(function (item) {
       const check = item.querySelector("input[type=checkbox]");
 
