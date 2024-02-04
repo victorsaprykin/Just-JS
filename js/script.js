@@ -38,10 +38,9 @@ const appData = {
     this.addTitle();
     calcBtn.addEventListener("click", () => {
       this.start();
-      this.blockInputs();
     });
     addScreenBtn.addEventListener("click", this.addScreenBlock);
-    setRollback.addEventListener("change", this.getRollback);
+    setRollback.addEventListener("change", appData.getRollback);
     resetBtn.addEventListener("click", () => {
       this.restart();
       console.log("restart");
@@ -80,7 +79,7 @@ const appData = {
     if (!this.isError) {
       this.addScreens();
       this.addServices();
-
+      this.blockInputs();
       this.addPrices();
 
       console.log(appData);
@@ -99,7 +98,7 @@ const appData = {
   addScreens: function () {
     screens = document.querySelectorAll(".screen");
 
-    screens.forEach(function (screen, index) {
+    screens.forEach((screen, index) => {
       let select = screen.querySelector("select");
       let input = screen.querySelector("input");
       const selectName = select.options[select.selectedIndex].textContent;
@@ -113,12 +112,10 @@ const appData = {
 
       console.dir(screens);
     });
-
-  
   },
 
   addServices: function () {
-    addServicePercent.forEach(function (item) {
+    addServicePercent.forEach((item) => {
       const check = item.querySelector("input[type=checkbox]");
       const label = item.querySelector("label");
       const input = item.querySelector("input[type=text]");
@@ -127,7 +124,7 @@ const appData = {
         this.servisesPercent[label.textContent] = +input.value;
       }
     });
-    addServiceNumber.forEach(function (item) {
+    addServiceNumber.forEach((item) => {
       const check = item.querySelector("input[type=checkbox]");
       const label = item.querySelector("label");
       const input = item.querySelector("input[type=text]");
@@ -149,7 +146,7 @@ const appData = {
 
   blockInputs: function () {
     screens = document.querySelectorAll(".screen");
-    screens.forEach(function (screen, index) {
+    screens.forEach((screen, index) => {
       let select = screen.querySelector("select");
       let input = screen.querySelector("input");
       select.disabled = true;
@@ -166,7 +163,7 @@ const appData = {
   },
 
   restart: function () {
-    screens.forEach(function (screen, index) {
+    screens.forEach((screen, index) => {
       let select = screen.querySelector("select");
       let input = screen.querySelector("input");
 
@@ -186,13 +183,13 @@ const appData = {
       screens[0].parentNode.removeChild(screens[i]);
     }
 
-    addServicePercent.forEach(function (item) {
+    addServicePercent.forEach((item) => {
       const check = item.querySelector("input[type=checkbox]");
 
       check.checked = false;
     });
 
-    addServiceNumber.forEach(function (item) {
+    addServiceNumber.forEach((item) => {
       const check = item.querySelector("input[type=checkbox]");
 
       check.checked = false;
